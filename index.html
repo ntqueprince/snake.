@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colorful Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div class="panel">
+      <h2>Snake Stats</h2>
+      <label>Level:</label>
+      <select id="levelSelect">
+        <option value="100">Easy</option>
+        <option value="70">Medium</option>
+        <option value="40">Hard</option>
+      </select>
+      <span>Score: <strong id="score">0</strong></span>
+      <span>Speed: <strong id="speed">Normal</strong></span>
+      <span>Press Space to Pause/Resume</span>
+
+      <div id="leaderboard" style="margin-top: 12px; padding: 8px; background: #1a1a2e; border-radius: 8px;">
+        <h3 style="text-align: center;">🏆 Top Scorers</h3>
+        <div id="scoreList">Loading...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-over-screen" id="gameOverScreen">
+    <div>Game Over! Final Score: <span id="finalScore">0</span></div>
+    <button onclick="resetGame()">Play Again</button>
+  </div>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const SUPABASE_URL = 'https://ogwzvivzjpllxusuvcys.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9nd3p2aXZ6anBsbHh1c3V2Y3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0Nzc2MjIsImV4cCI6MjA2OTA1MzYyMn0.-J6KPZWv92S1GUwUo-IuHoB97OVO7Fuhy-rlva8O2CY';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
